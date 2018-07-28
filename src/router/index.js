@@ -4,6 +4,7 @@ import ImgDisplay from "@/components/ImgDisplay";
 import ItemListElement from "@/components/ItemListElement";
 import AuthPanel from "@/components/AuthPanel";
 import PhotoForm from "@/components/PhotoForm";
+import Index from "@/components/Index";
 
 Vue.use(Router);
 
@@ -28,6 +29,11 @@ export default new Router({
       path: "/PhotoForm",
       name: "PhotoForm",
       component: PhotoForm
+    },
+    {
+      path: "/Index",
+      name: "Index",
+      component: Index
     }
   ]
 });
