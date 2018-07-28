@@ -5,6 +5,8 @@ import ItemListElement from "@/components/ItemListElement";
 import AuthPanel from "@/components/AuthPanel";
 import PhotoForm from "@/components/PhotoForm";
 import Index from "@/components/Index";
+import Login from "@/components/Login";
+import SignUp from "@/components/SignUp";
 
 Vue.use(Router);
 
@@ -34,6 +36,16 @@ export default new Router({
       path: "/Index",
       name: "Index",
       component: Index
+    },
+    {
+      path: "/Login",
+      name: "Login",
+      component: Login
+    },
+    {
+      path: "/SignUp",
+      name: "SignUp",
+      component: SignUp
     }
   ]
 });
