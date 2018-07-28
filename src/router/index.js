@@ -3,6 +3,7 @@ import Router from "vue-router";
 import ImgDisplay from "@/components/ImgDisplay";
 import ItemListElement from "@/components/ItemListElement";
 import AuthPanel from "@/components/AuthPanel";
+import PhotoForm from "@/components/PhotoForm";
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: "/AuthPanel",
       name: "AuthPanel",
       component: AuthPanel
+    },
+    {
+      path: "/PhotoForm",
+      name: "PhotoForm",
+      component: PhotoForm
     }
   ]
 });
