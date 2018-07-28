@@ -8,6 +8,8 @@ import Index from "@/components/Index";
 import Login from "@/components/Login";
 import SignUp from "@/components/SignUp";
 import Show from "@/components/Show";
+import New from "@/components/New";
+import Edit from "@/components/Edit";
 
 Vue.use(Router);
 
@@ -52,6 +54,16 @@ export default new Router({
       path: "/Show",
       name: "Show",
       component: Show
+    },
+    {
+      path: "/New",
+      name: "New",
+      component: New
+    },
+    {
+      path: "/Edit",
+      name: "Edit",
+      component: Edit
     }
   ]
 });
