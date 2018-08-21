@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   props: {
     isLogin: {
@@ -48,6 +49,19 @@ export default {
     },
     handleDelete: function() {
       console.log("destroy");
+      let that = this;
+      var deleteUrl = "http://35.185.111.183/api/v1/photos/" + this.id;
+      var token = JSON.parse(localStorage.getItem("photo-album-user"))
+        .authToken;
+      var params = { auth_token: token };
+      axios
+        .delete(deleteUrl, { params })
+        .then(function(res) {
+          console.log(res);
+        })
+        .catch(function(err) {
+          console.error(err.response.data);
+        });
     }
   },
   computed: {
