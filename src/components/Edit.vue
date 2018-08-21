@@ -13,6 +13,7 @@
       :title="photo.title"
       :description="photo.description"
       v-if="photo.title" 
+      @photo-form-submit="patchUpdate"
     />
   </div>
 </div>
@@ -31,6 +32,37 @@ export default {
     return {
       photo: {}
     };
+  },
+  methods: {
+    patchUpdate: function(payload) {
+      var that = this;
+      // generate request url
+      var id = this.$route.params.id;
+      var updateUrl = "http://35.185.111.183/api/v1/photos/" + id;
+      var token = JSON.parse(localStorage.getItem("photo-album-user"))
+        .authToken;
+      // pack params using FormData
+      var params = new FormData();
+      params.append("auth_token", token);
+      params.append("title", payload.title);
+      params.append("date", payload.date);
+      params.append("description", payload.description);
+      params.append("file_location", payload.file_location);
+      console.log(params);
+      // get data from api
+      axios
+        .patch(updateUrl, params, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        })
+        .then(function(res) {
+          that.$router.push("/photos/" + res.data.result.id);
+        })
+        .catch(function(err) {
+          console.error(err.response.data);
+        });
+    }
   },
   created() {
     var that = this;
